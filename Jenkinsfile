@@ -39,7 +39,6 @@ pipeline {
                  sh "mvn test"
            }
        }
-/*
        stage("SonarQube Analysis"){
            steps {
 	           script {
@@ -49,7 +48,8 @@ pipeline {
 	           }	
            }
        }
-
+/*
+	    
        stage("Quality Gate"){
            steps {
                script {
