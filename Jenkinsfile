@@ -90,7 +90,7 @@ pipeline {
                }
           }
        }
-
+/*
        stage("Trigger CD Pipeline") {
             steps {
                 script {
@@ -99,7 +99,7 @@ pipeline {
             }
        }
     }
-/*
+
     post {
        failure {
              emailext body: '''${SCRIPT, template="groovy-html.template"}''', 
