@@ -57,7 +57,7 @@ pipeline {
             }
 
         }
-
+/*
         stage("Build & Push Docker Image") {
             steps {
                 script {
@@ -90,7 +90,7 @@ pipeline {
                }
           }
        }
-/*
+
        stage("Trigger CD Pipeline") {
             steps {
                 script {
