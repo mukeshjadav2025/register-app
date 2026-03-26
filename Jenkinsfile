@@ -4,7 +4,8 @@ pipeline {
         jdk 'java17'
         maven 'maven'
     }
-   environment {
+   //
+	environment {
 	    APP_NAME = "register-app-pipeline"
             RELEASE = "1.0.0"
             DOCKER_USER = "mukeshjadav7696"
@@ -14,6 +15,7 @@ pipeline {
 	    JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
   
    }
+   //
     stages{
         stage("Cleanup Workspace"){
                 steps {
