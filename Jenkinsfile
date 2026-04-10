@@ -33,13 +33,31 @@ pipeline {
             steps {
                 sh "mvn clean package"
             }
-
+		
        }
 
-       stage("Test Application"){
-           steps {
+       	stage("Test Application"){
+           	steps {
                  sh "mvn test"
+           	}
+       	}
+		      stage("SonarQube Analysis"){
+           steps {
+	           script {
+		        withSonarQubeEnv(credentialsId: 'Jenkins-Sonarqube-Token') { 
+                        sh "mvn sonar:sonar"
+		        }
+	           }	
            }
        }
-    }
+	    
+       stage("Quality Gate"){
+           steps {
+               script {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'Jenkins-Sonarqube-Token'
+                }	
+            }
+
+        }		
+	}
 }
